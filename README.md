@@ -19,3 +19,23 @@ and protocal buffer are independent to the language in implementation.
 2. Backward compatibility for free.
 3. Validation and extensibility.
 4. Easy language interporability.
+
+**Writing proto file**
+
+proto file Name: `employee.proto`
+
+```
+syntax = "proto3";
+
+message Employee {
+    int32 id = 1;
+    string name = 2;
+    float salary = 3;
+}
+
+message Employees {
+    repeated Employee employeeList = 1; /** Array of Employee **/
+
+}
+
+```
