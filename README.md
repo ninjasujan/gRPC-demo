@@ -39,3 +39,11 @@ message Employees {
 }
 
 ```
+
+#### How to setup project
+
+1. Clone the repo
+2. Install all dependencies in both client and server `npm i`
+3. Add .env file
+4. run both client and server in different port
+5. Make api call from clinet to make RPC call
