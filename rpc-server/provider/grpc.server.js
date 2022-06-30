@@ -1,3 +1,5 @@
+const fs = require("fs");
+const path = require("path");
 const grpc = require("@grpc/grpc-js");
 const Locals = require("../configs/Locals");
 const routeGuide = require("../proto/loader/route_guide.loader");
@@ -9,14 +11,40 @@ class GRPC {
         this.server.addService(routeGuide.protoDescriptor.RouteGuide.service, {
             getFeature: getFeature,
         });
-        grpc.credentials.createSsl();
-        this.server.bindAsync(
-            `104.161.92.74:9006`,
-            grpc.ServerCredentials.createInsecure(),
-            () => {
-                this.server.start();
-            }
+
+        this.credentials = grpc.ServerCredentials.createSsl(
+            fs.readFileSync(
+                path.join(__dirname, "..", "..", "scripts", "certs", "ca.crt")
+            ),
+            [
+                {
+                    cert_chain: fs.readFileSync(
+                        path.join(
+                            __dirname,
+                            "..",
+                            "..",
+                            "scripts",
+                            "certs",
+                            "server.crt"
+                        )
+                    ),
+                    private_key: fs.readFileSync(
+                        path.join(
+                            __dirname,
+                            "..",
+                            "..",
+                            "scripts",
+                            "certs",
+                            "server.key"
+                        )
+                    ),
+                },
+            ]
         );
+
+        this.server.bindAsync(`localhost:5000`, this.credentials, () => {
+            this.server.start();
+        });
     };
 }
 

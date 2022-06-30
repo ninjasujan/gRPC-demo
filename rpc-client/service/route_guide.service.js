@@ -5,9 +5,8 @@ class RouteGuide {
         return new Promise((resolve, reject) => {
             gRPC.gRPC_Client.getFeature(point, (err, response) => {
                 if (err) {
-                    reject("[Error RPC call]", err?.message);
+                    reject(err);
                 }
-                console.log("[GRPC response]", JSON.parse(response.details));
                 resolve(response);
             });
         });
