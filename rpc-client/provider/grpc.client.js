@@ -42,7 +42,7 @@ class GRPC {
 
             this.gRPC_Client = new routeGuide.protoDescriptor.RouteGuide(
                 `localhost:5000`,
-                grpc.credentials.createInsecure()
+                this.credentials
             );
             console.log("[Connected]");
         } catch (error) {

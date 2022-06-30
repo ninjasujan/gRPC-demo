@@ -2,8 +2,8 @@ const getFeature = async (point, callback) => {
     callback(null, {
         success: true,
         response: JSON.stringify({
-            status: "success",
-            message: "Some Info",
+            message: "Hello World!",
+            languages: ["c++", "golang", "java", "javascript"],
         }),
     });
 };
