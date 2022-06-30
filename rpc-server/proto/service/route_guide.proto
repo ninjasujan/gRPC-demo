@@ -1,5 +1,7 @@
 syntax = "proto3";
 
+import "google/protobuf/any.proto";
+
 
 service RouteGuide {
     rpc getFeature(Point) returns (Feature) {}

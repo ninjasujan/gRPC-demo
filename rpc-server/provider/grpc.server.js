@@ -9,6 +9,7 @@ class GRPC {
         this.server.addService(routeGuide.protoDescriptor.RouteGuide.service, {
             getFeature: getFeature,
         });
+        grpc.credentials.createSsl();
         this.server.bindAsync(
             `104.161.92.74:9006`,
             grpc.ServerCredentials.createInsecure(),
