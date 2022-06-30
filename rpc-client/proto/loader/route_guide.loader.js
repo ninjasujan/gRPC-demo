@@ -18,6 +18,7 @@ class RouteGide {
             oneofs: true,
         });
         this.protoDescriptor = grpc.loadPackageDefinition(packageDefinition);
+        // console.log("[Proto Loader]", this.protoDescriptor.google.protobuf);
     }
 }
 

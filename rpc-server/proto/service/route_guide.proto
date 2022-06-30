@@ -1,5 +1,7 @@
 syntax = "proto3";
 
+import "google/protobuf/any.proto";
+
 
 service RouteGuide {
     rpc getFeature(Point) returns (Feature) {}
@@ -12,6 +14,7 @@ message Point {
 
 message Feature {
     bool success = 3;
+    string details = 4;
 }
 
 
