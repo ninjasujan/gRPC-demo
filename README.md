@@ -40,6 +40,29 @@ message Employees {
 
 ```
 
+#### Short note on SSL and TLS Authentication
+
+#### Self-Signed Certificate genration
+
+**Generate CA**
+
+    1. Generate RSA
+        `openssl genrsa -aes256 -out ca-key.pem 4096`
+
+    2. Generate a public CA Cert
+        `openssl req -new -x509 -sha256 -days 365 -key ca-key.pem -out ca.pem`
+
+**Generate Certificate**
+
+    1. Create a RSA key
+        `openssl genrsa -out cert-key.pem 4096`
+
+    2. Create a Certificate Signing Request (CSR)
+        `openssl req -new -sha256 -subj "/CN=yourcn" -key cert-key.pem -out cert.csr`
+
+    3. Create a extfile with all the alternative names
+        ``
+
 #### How to setup project
 
 1. Clone the repo

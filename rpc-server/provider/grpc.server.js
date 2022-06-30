@@ -9,6 +9,7 @@ class GRPC {
         this.server.addService(routeGuide.protoDescriptor.RouteGuide.service, {
             getFeature: getFeature,
         });
+        grpc.credentials.createSsl();
         this.server.bindAsync(
             `127.0.0.1:${Locals.EXPRESS_SERVER_PORT}`,
             grpc.ServerCredentials.createInsecure(),
