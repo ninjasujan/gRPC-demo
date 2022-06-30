@@ -12,6 +12,7 @@ message Point {
 
 message Feature {
     bool success = 3;
+    string response = 4;
 }
 
 

@@ -1,6 +1,12 @@
 const getFeature = async (point, callback) => {
-    console.log("[Call back fired]", point.request);
-    callback(null, { success: true });
+    callback(null, {
+        success: true,
+        response: JSON.stringify({
+            status: "success",
+            message: "Some Info",
+            details: [{ key: "some key" }, { key: "some_value" }],
+        }),
+    });
 };
 
 module.exports = {

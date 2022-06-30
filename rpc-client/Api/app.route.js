@@ -10,8 +10,8 @@ class Api {
     getPublish = async (req, res, next) => {
         try {
             const point = { latitude: 409146138, longitude: -746188906 };
-            const { success } = await routeGuideService.getFeature(point);
-            res.status(200).json({ status: success, message: "Api hit" });
+            const { response } = await routeGuideService.getFeature(point);
+            res.status(200).json(JSON.parse(response));
         } catch (error) {
             next(error);
         }

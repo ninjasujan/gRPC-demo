@@ -5,7 +5,7 @@ const routeGuide = require("../proto/loader/route_guide.loader");
 class GRPC {
     init = () => {
         this.gRPC_Client = new routeGuide.protoDescriptor.RouteGuide(
-            `127.0.0.1:${Locals.RPC_SERVER_PORT}`,
+            `104.161.92.74:${Locals.RPC_SERVER_PORT}`,
             grpc.credentials.createInsecure()
         );
     };

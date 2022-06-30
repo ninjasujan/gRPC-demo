@@ -10,7 +10,7 @@ class GRPC {
             getFeature: getFeature,
         });
         this.server.bindAsync(
-            `127.0.0.1:${Locals.EXPRESS_SERVER_PORT}`,
+            `104.161.92.74:9006`,
             grpc.ServerCredentials.createInsecure(),
             () => {
                 this.server.start();
